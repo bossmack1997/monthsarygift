@@ -21,7 +21,7 @@
       }
 
       h1 {
-        font-size: 2em;
+        font-size: 2.5em;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         word-wrap: break-word;
       }
@@ -29,18 +29,18 @@
       button {
         display: block;
         margin: 10px auto;
-        padding: 12px 20px;
+        padding: 14px 22px;
         border: none;
         border-radius: 25px;
         background: white;
         color: #ff4d6d;
         cursor: pointer;
-        width: 90%;
-        max-width: 300px;
+        width: 95%;
+        max-width: 350px;
         font-weight: bold;
         transition: 0.3s;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        font-size: 1em;
+        font-size: 1.1em;
       }
 
       button:hover {
@@ -54,7 +54,7 @@
       }
 
       #result {
-        font-size: 1.2em;
+        font-size: 1.4em;
         margin-top: 20px;
         text-shadow: 1px 1px 5px black;
         word-wrap: break-word;
@@ -83,8 +83,8 @@
 
       .overlay-text {
         position: absolute;
-        bottom: 30px;
-        font-size: 1.5em;
+        bottom: 20px;
+        font-size: 1.8em;
         color: white;
         text-shadow: 0 0 15px black;
         text-align: center;
@@ -95,7 +95,7 @@
       .heart {
         position: absolute;
         color: red;
-        font-size: 18px;
+        font-size: 20px;
         animation: float 5s linear infinite;
       }
 
@@ -128,46 +128,45 @@
         }
       }
 
-      /* MEDIA QUERY FOR SMALL SCREENS */
+      /* MEDIA QUERY FOR TABLETS */
       @media (max-width: 768px) {
         h1 {
-          font-size: 1.7em;
+          font-size: 2.2em;
         }
         button {
-          font-size: 0.95em;
-          padding: 10px 15px;
+          font-size: 1em;
+          padding: 12px 18px;
         }
         #result {
-          font-size: 1.1em;
+          font-size: 1.2em;
         }
         .overlay-text {
-          font-size: 1.3em;
+          font-size: 1.5em;
           bottom: 20px;
         }
         video {
-          width: 95%;
-          max-width: 400px;
+          max-width: 450px;
         }
       }
 
+      /* MEDIA QUERY FOR SMALL PHONES */
       @media (max-width: 480px) {
         h1 {
-          font-size: 1.4em;
+          font-size: 1.8em;
         }
         button {
-          font-size: 0.9em;
-          padding: 8px 12px;
+          font-size: 0.95em;
+          padding: 10px 14px;
         }
         #result {
           font-size: 1em;
         }
         .overlay-text {
-          font-size: 1.1em;
+          font-size: 1.3em;
           bottom: 15px;
         }
         video {
-          width: 95%;
-          max-width: 300px;
+          max-width: 320px;
         }
       }
     </style>
@@ -264,7 +263,7 @@
           heart.classList.add("heart");
           heart.innerHTML = "❤️";
           heart.style.left = Math.random() * 100 + "vw";
-          heart.style.fontSize = Math.random() * 20 + 10 + "px";
+          heart.style.fontSize = Math.random() * 20 + 12 + "px";
           document.body.appendChild(heart);
           setTimeout(() => heart.remove(), 5000);
         }, 300);
@@ -291,7 +290,7 @@
           const video = document.createElement("video");
           video.src = "2025-11-08-214218542.mp4";
           video.autoplay = true;
-          video.muted = true; // required for autoplay
+          video.muted = true;
           video.loop = false;
           video.playsInline = true;
           video.controls = true;
@@ -309,7 +308,6 @@
           startHearts();
           startConfetti();
 
-          // Force play for mobile
           video.play().catch(() => {
             video.muted = true;
             video.play();
