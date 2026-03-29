@@ -119,25 +119,56 @@
       }
 
       @keyframes confettiFall {
-        0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateY(800px) rotate(360deg); opacity: 0; }
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          transform: translateY(800px) rotate(360deg);
+          opacity: 0;
+        }
       }
 
       /* MEDIA QUERY FOR SMALL SCREENS */
       @media (max-width: 768px) {
-        h1 { font-size: 1.7em; }
-        button { font-size: 0.95em; padding: 10px 15px; }
-        #result { font-size: 1.1em; }
-        .overlay-text { font-size: 1.3em; bottom: 20px; }
-        video { width: 95%; max-width: 400px; }
+        h1 {
+          font-size: 1.7em;
+        }
+        button {
+          font-size: 0.95em;
+          padding: 10px 15px;
+        }
+        #result {
+          font-size: 1.1em;
+        }
+        .overlay-text {
+          font-size: 1.3em;
+          bottom: 20px;
+        }
+        video {
+          width: 95%;
+          max-width: 400px;
+        }
       }
 
       @media (max-width: 480px) {
-        h1 { font-size: 1.4em; }
-        button { font-size: 0.9em; padding: 8px 12px; }
-        #result { font-size: 1em; }
-        .overlay-text { font-size: 1.1em; bottom: 15px; }
-        video { width: 95%; max-width: 300px; }
+        h1 {
+          font-size: 1.4em;
+        }
+        button {
+          font-size: 0.9em;
+          padding: 8px 12px;
+        }
+        #result {
+          font-size: 1em;
+        }
+        .overlay-text {
+          font-size: 1.1em;
+          bottom: 15px;
+        }
+        video {
+          width: 95%;
+          max-width: 300px;
+        }
       }
     </style>
   </head>
@@ -150,16 +181,50 @@
 
     <script>
       const quiz = [
-        { q: "Where did we first meet? 📍", choices: ["Mall", "Park", "Cafe", "Jollibee", "McDonald's"], answer: "Jollibee" },
-        { q: "What was my first message to you?", choices: ["Hi!", "Hello!", "Are you free?", "You have no duty today?"], answer: "You have no duty today?" },
-        { q: "Where was our first date? ❤️", choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"], answer: "McDonald's" },
-        { q: "Where was our first Monthsary date? ❤️", choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"], answer: "Bayan ng Pulilan" },
-        { q: "What did you give me when you answered me? ☕", choices: ["Tea", "Coffee", "Chocolate", "Flowers"], answer: "Coffee" },
-        { q: "What was my 1st monthsary gift to you? 🎁", choices: ["Pizza", "Burger", "Sushi", "Butterfly"], answer: "Butterfly" },
-        { q: "What do we call each other? 💞", choices: ["Babe", "Love", "Baby", "MOSH"], answer: "Love" }
+        {
+          q: "Where did we first meet? 📍",
+          choices: ["Mall", "Park", "Cafe", "Jollibee", "McDonald's"],
+          answer: "Jollibee",
+        },
+        {
+          q: "What was my first message to you?",
+          choices: [
+            "Hi!",
+            "Hello!",
+            "Are you free?",
+            "You have no duty today?",
+          ],
+          answer: "You have no duty today?",
+        },
+        {
+          q: "Where was our first date? ❤️",
+          choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"],
+          answer: "McDonald's",
+        },
+        {
+          q: "Where was our first Monthsary date? ❤️",
+          choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"],
+          answer: "Bayan ng Pulilan",
+        },
+        {
+          q: "What did you give me when you answered me? ☕",
+          choices: ["Tea", "Coffee", "Chocolate", "Flowers"],
+          answer: "Coffee",
+        },
+        {
+          q: "What was my 1st monthsary gift to you? 🎁",
+          choices: ["Pizza", "Burger", "Sushi", "Butterfly"],
+          answer: "Butterfly",
+        },
+        {
+          q: "What do we call each other? 💞",
+          choices: ["Babe", "Love", "Baby", "MOSH"],
+          answer: "Love",
+        },
       ];
 
-      let current = 0, score = 0;
+      let current = 0,
+        score = 0;
 
       function loadQuestion() {
         document.getElementById("result").innerText = "";
@@ -170,7 +235,7 @@
           document.getElementById("question").innerText = q.q;
           const choicesDiv = document.getElementById("choices");
           choicesDiv.innerHTML = "";
-          q.choices.forEach(choice => {
+          q.choices.forEach((choice) => {
             const btn = document.createElement("button");
             btn.innerText = choice;
             btn.onclick = () => checkAnswer(choice);
@@ -182,9 +247,15 @@
 
       function checkAnswer(choice) {
         if (choice === quiz[current].answer) score++;
-        document.getElementById("result").innerText = choice === quiz[current].answer ? "Correct! 💖" : "Wrong 😢 but I still love you ❤️";
+        document.getElementById("result").innerText =
+          choice === quiz[current].answer
+            ? "Correct! 💖"
+            : "Wrong 😢 but I still love you ❤️";
         current++;
-        setTimeout(() => current < quiz.length ? loadQuestion() : showResult(), 1000);
+        setTimeout(
+          () => (current < quiz.length ? loadQuestion() : showResult()),
+          1000,
+        );
       }
 
       function startHearts() {
@@ -220,7 +291,7 @@
           const video = document.createElement("video");
           video.src = "2025-11-08-214218542.mp4";
           video.autoplay = true;
-          video.muted = true;      // required for autoplay
+          video.muted = true; // required for autoplay
           video.loop = false;
           video.playsInline = true;
           video.controls = true;
@@ -229,7 +300,8 @@
 
           const overlay = document.createElement("div");
           overlay.classList.add("overlay-text");
-          overlay.innerText = "I love you so much ❤️ Happy 6th Monthsary LOVE💍";
+          overlay.innerText =
+            "I love you so much ❤️ Happy 6th Monthsary LOVE💍";
           videoContainer.appendChild(overlay);
 
           document.body.appendChild(videoContainer);
@@ -242,7 +314,10 @@
             video.muted = true;
             video.play();
           });
-          setTimeout(() => { video.muted = false; video.play(); }, 100);
+          setTimeout(() => {
+            video.muted = false;
+            video.play();
+          }, 100);
         } else {
           container.innerHTML = `<h1>Quiz Finished 💖</h1>
           <p>Your Score: ${score}/${quiz.length}</p>
