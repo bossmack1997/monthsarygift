@@ -3,140 +3,143 @@
   <head>
     <meta charset="UTF-8" />
     <title>Love Quiz 💖</title>
-   <style>
-  body {
-    font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    text-align: center;
-    color: white;
-    margin: 0;
-    overflow-x: hidden;
-    position: relative;
-  }
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        text-align: center;
+        color: white;
+        margin: 0;
+        overflow-x: hidden;
+        position: relative;
+      }
 
-  .container {
-    margin-top: 50px;
-    padding: 0 10px;
-    transition: opacity 0.5s;
-  }
+      .container {
+        margin-top: 50px;
+        padding: 0 10px;
+        transition: opacity 0.5s;
+      }
 
-  h1 {
-    font-size: 2em;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    word-wrap: break-word;
-  }
+      h1 {
+        font-size: 2em;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        word-wrap: break-word;
+      }
 
-  button {
-    display: block;
-    margin: 10px auto;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    background: white;
-    color: #ff4d6d;
-    cursor: pointer;
-    width: 90%;
-    max-width: 300px;
-    font-weight: bold;
-    transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 1em;
-  }
+      button {
+        display: block;
+        margin: 10px auto;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        background: white;
+        color: #ff4d6d;
+        cursor: pointer;
+        width: 90%;
+        max-width: 300px;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        font-size: 1em;
+      }
 
-  button:hover {
-    background: #ff4d6d;
-    color: white;
-    transform: scale(1.05);
-  }
+      button:hover {
+        background: #ff4d6d;
+        color: white;
+        transform: scale(1.05);
+      }
 
-  button:active {
-    transform: scale(0.95);
-  }
+      button:active {
+        transform: scale(0.95);
+      }
 
-  #result {
-    font-size: 1.2em;
-    margin-top: 20px;
-    text-shadow: 1px 1px 5px black;
-    word-wrap: break-word;
-  }
+      #result {
+        font-size: 1.2em;
+        margin-top: 20px;
+        text-shadow: 1px 1px 5px black;
+        word-wrap: break-word;
+      }
 
-  .video-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 9999;
-  }
+      .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+      }
 
-  video {
-    width: 90%;
-    max-width: 400px;
-    border-radius: 15px;
-  }
+      video {
+        width: 95%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 15px;
+      }
 
-  .overlay-text {
-    position: absolute;
-    bottom: 30px;
-    font-size: 1.5em;
-    color: white;
-    text-shadow: 0 0 15px black;
-    text-align: center;
-    width: 90%;
-    word-wrap: break-word;
-  }
+      .overlay-text {
+        position: absolute;
+        bottom: 30px;
+        font-size: 1.5em;
+        color: white;
+        text-shadow: 0 0 15px black;
+        text-align: center;
+        width: 95%;
+        word-wrap: break-word;
+      }
 
-  .heart {
-    position: absolute;
-    color: red;
-    font-size: 18px;
-    animation: float 5s linear infinite;
-  }
+      .heart {
+        position: absolute;
+        color: red;
+        font-size: 18px;
+        animation: float 5s linear infinite;
+      }
 
-  @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); opacity:1; }
-    100% { transform: translateY(-800px) rotate(360deg); opacity:0; }
-  }
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-800px) rotate(360deg);
+          opacity: 0;
+        }
+      }
 
-  .confetti {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    animation: confettiFall 3s linear forwards;
-    z-index: 10000;
-  }
+      .confetti {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        animation: confettiFall 3s linear forwards;
+        z-index: 10000;
+      }
 
-  @keyframes confettiFall {
-    0% { transform: translateY(0) rotate(0deg);}
-    100% { transform: translateY(800px) rotate(360deg); opacity:0;}
-  }
+      @keyframes confettiFall {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(800px) rotate(360deg); opacity: 0; }
+      }
 
-  /* MEDIA QUERY FOR SMALL SCREENS */
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.5em;
-    }
-    button {
-      font-size: 0.9em;
-      padding: 10px 15px;
-    }
-    #result {
-      font-size: 1em;
-    }
-    .overlay-text {
-      font-size: 1.2em;
-      bottom: 20px;
-    }
-    video {
-      max-width: 90%;
-    }
-  }
-</style>
+      /* MEDIA QUERY FOR SMALL SCREENS */
+      @media (max-width: 768px) {
+        h1 { font-size: 1.7em; }
+        button { font-size: 0.95em; padding: 10px 15px; }
+        #result { font-size: 1.1em; }
+        .overlay-text { font-size: 1.3em; bottom: 20px; }
+        video { width: 95%; max-width: 400px; }
+      }
+
+      @media (max-width: 480px) {
+        h1 { font-size: 1.4em; }
+        button { font-size: 0.9em; padding: 8px 12px; }
+        #result { font-size: 1em; }
+        .overlay-text { font-size: 1.1em; bottom: 15px; }
+        video { width: 95%; max-width: 300px; }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -147,52 +150,17 @@
 
     <script>
       const quiz = [
-        {
-          q: "Where did we first meet? 📍",
-          choices: ["Mall", "Park", "Cafe", "Jollibee", "McDonald's"],
-          answer: "Jollibee",
-        },
-        {
-          q: "What was my first message to you?",
-          choices: [
-            "Hi!",
-            "Hello!",
-            "Are you free?",
-            "You have no duty today?",
-          ],
-          answer: "You have no duty today?",
-        },
-        {
-          q: "Where was our first date? ❤️",
-          choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"],
-          answer: "McDonald's",
-        },
-        {
-          q: "Where was our first Monthsary date? ❤️",
-          choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"],
-          answer: "Bayan ng Pulilan",
-        },
-        {
-          q: "What did you give me when you answered me? ☕",
-          choices: ["Tea", "Coffee", "Chocolate", "Flowers"],
-          answer: "Coffee",
-        },
-        {
-          q: "What was my 1st monthsary gift to you? 🎁",
-          choices: ["Pizza", "Burger", "Sushi", "Butterfly"],
-          answer: "Butterfly",
-        },
-        {
-          q: "What do we call each other? 💞",
-          choices: ["Babe", "Love", "Baby", "MOSH"],
-          answer: "Love",
-        },
+        { q: "Where did we first meet? 📍", choices: ["Mall", "Park", "Cafe", "Jollibee", "McDonald's"], answer: "Jollibee" },
+        { q: "What was my first message to you?", choices: ["Hi!", "Hello!", "Are you free?", "You have no duty today?"], answer: "You have no duty today?" },
+        { q: "Where was our first date? ❤️", choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"], answer: "McDonald's" },
+        { q: "Where was our first Monthsary date? ❤️", choices: ["Mall", "Park", "Cafe", "Bayan ng Pulilan", "McDonald's"], answer: "Bayan ng Pulilan" },
+        { q: "What did you give me when you answered me? ☕", choices: ["Tea", "Coffee", "Chocolate", "Flowers"], answer: "Coffee" },
+        { q: "What was my 1st monthsary gift to you? 🎁", choices: ["Pizza", "Burger", "Sushi", "Butterfly"], answer: "Butterfly" },
+        { q: "What do we call each other? 💞", choices: ["Babe", "Love", "Baby", "MOSH"], answer: "Love" }
       ];
 
-      let current = 0;
-      let score = 0;
+      let current = 0, score = 0;
 
-      // LOAD QUESTION
       function loadQuestion() {
         document.getElementById("result").innerText = "";
         const q = quiz[current];
@@ -202,7 +170,7 @@
           document.getElementById("question").innerText = q.q;
           const choicesDiv = document.getElementById("choices");
           choicesDiv.innerHTML = "";
-          q.choices.forEach((choice) => {
+          q.choices.forEach(choice => {
             const btn = document.createElement("button");
             btn.innerText = choice;
             btn.onclick = () => checkAnswer(choice);
@@ -212,23 +180,13 @@
         }, 300);
       }
 
-      // CHECK ANSWER
       function checkAnswer(choice) {
-        if (choice === quiz[current].answer) {
-          score++;
-          document.getElementById("result").innerText = "Correct! 💖";
-        } else {
-          document.getElementById("result").innerText =
-            "Wrong 😢 but I still love you ❤️";
-        }
+        if (choice === quiz[current].answer) score++;
+        document.getElementById("result").innerText = choice === quiz[current].answer ? "Correct! 💖" : "Wrong 😢 but I still love you ❤️";
         current++;
-        setTimeout(() => {
-          if (current < quiz.length) loadQuestion();
-          else showResult();
-        }, 1000);
+        setTimeout(() => current < quiz.length ? loadQuestion() : showResult(), 1000);
       }
 
-      // FLOATING HEARTS
       function startHearts() {
         setInterval(() => {
           const heart = document.createElement("div");
@@ -241,7 +199,6 @@
         }, 300);
       }
 
-      // CONFETTI
       function startConfetti() {
         setInterval(() => {
           const confetti = document.createElement("div");
@@ -253,51 +210,47 @@
         }, 100);
       }
 
-      // SHOW RESULT WITH FULL AUTOPLAY VIDEO + SOUND
       function showResult() {
         const container = document.querySelector(".container");
         container.innerHTML = "";
-
         if (score === quiz.length) {
           const videoContainer = document.createElement("div");
           videoContainer.classList.add("video-container");
 
           const video = document.createElement("video");
-          video.src = "6th_monthsary.mp4";
+          video.src = "2025-11-08-214218542.mp4";
           video.autoplay = true;
-          video.muted = true; // muted first to satisfy browser
+          video.muted = true;      // required for autoplay
           video.loop = false;
           video.playsInline = true;
           video.controls = true;
+
           videoContainer.appendChild(video);
 
           const overlay = document.createElement("div");
           overlay.classList.add("overlay-text");
-          overlay.innerText = "I love you so much ❤️ Happy 6th Monthsary 💍";
+          overlay.innerText = "I love you so much ❤️ Happy 6th Monthsary LOVE💍";
           videoContainer.appendChild(overlay);
 
           document.body.appendChild(videoContainer);
 
-          // FLOATING HEARTS & CONFETTI
           startHearts();
           startConfetti();
 
-          // AFTER first user click → unmute video
-          setTimeout(() => {
-            video.muted = false;
-            video.play().catch(() => {});
-          }, 100);
+          // Force play for mobile
+          video.play().catch(() => {
+            video.muted = true;
+            video.play();
+          });
+          setTimeout(() => { video.muted = false; video.play(); }, 100);
         } else {
-          container.innerHTML = `
-      <h1>Quiz Finished 💖</h1>
-      <p>Your Score: ${score}/${quiz.length}</p>
-      <p>No matter what... I still love you ❤️</p>
-    `;
+          container.innerHTML = `<h1>Quiz Finished 💖</h1>
+          <p>Your Score: ${score}/${quiz.length}</p>
+          <p>No matter what... I still love you ❤️</p>`;
           startHearts();
         }
       }
 
-      // INIT
       loadQuestion();
       startHearts();
     </script>
